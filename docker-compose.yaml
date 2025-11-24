@@ -1,51 +1,51 @@
 services:
-  # Development environment
-  client:
-    build: 
-      context: ./client
-      target: dev
-    ports:
-      - "5173:5173"
-    environment:
-      - NODE_ENV=development
-      - VITE_BASE_URL=http://localhost:3000
-    depends_on:
-      - server
-    restart: always
-  server:
-    build: 
-      context: ./server
-      target: dev
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=development
-      - MONGODB_URI=mongodb+srv://adeel:0NlT12srFcUelzM8@cluster0.xpwdjlo.mongodb.net/car-rental?retryWrites=true&w=majority&appName=Cluster0
-    #networks:
-     # - car-rental
-    #depends_on:
-     # - mongo
-    #restart: always
+#   # Development environment
+#   client:
+#     build: 
+#       context: ./client
+#       target: dev
+#     ports:
+#       - "5173:5173"
+#     environment:
+#       - NODE_ENV=development
+#       - VITE_BASE_URL=http://localhost:3000
+#     depends_on:
+#       - server
+#     restart: always
+#   server:
+#     build: 
+#       context: ./server
+#       target: dev
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       - NODE_ENV=development
+#       - MONGODB_URI=mongodb+srv://adeel:0NlT12srFcUelzM8@cluster0.xpwdjlo.mongodb.net/car-rental?retryWrites=true&w=majority&appName=Cluster0
+#     #networks:
+#      # - car-rental
+#     #depends_on:
+#      # - mongo
+#     #restart: always
 
-  #mongo:
-   # image: mongo:latest
-   # ports:
-   #   - "27017:27017"
-   # networks:
-   #   - car-rental
-   # volumes:
-    #  - mongo-data:/data/db
-    #restart: always
+#   #mongo:
+#    # image: mongo:latest
+#    # ports:
+#    #   - "27017:27017"
+#    # networks:
+#    #   - car-rental
+#    # volumes:
+#     #  - mongo-data:/data/db
+#     #restart: always
 
-#volumes:
- # mongo-data:
-#networks:
- # car-rental:
-   # driver: bridge
+# #volumes:
+#  # mongo-data:
+# #networks:
+#  # car-rental:
+#    # driver: bridge
 
    
   # Production environment
-  client-prod:
+  client:
     build: 
       context: ./client
       target: prod
@@ -55,10 +55,10 @@ services:
       - NODE_ENV=production
       - VITE_BASE_URL=http://localhost:3000
     depends_on:
-      - server-prod
+      - server
     restart: always
 
-  server-prod:
+  server:
     build: 
       context: ./server
       target: prod
