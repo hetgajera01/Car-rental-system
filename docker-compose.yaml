@@ -46,9 +46,8 @@ services:
    
   # Production environment
   client:
-    build: 
-      context: ./client
-      target: prod
+    build: ./client
+    image: client
     ports:
       - "80:80"
     environment:
@@ -59,9 +58,8 @@ services:
     restart: always
 
   server:
-    build: 
-      context: ./server
-      target: prod
+    build: ./server
+    image: server
     ports:
       - "3000:3000"
     environment:
