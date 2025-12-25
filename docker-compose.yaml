@@ -6,9 +6,6 @@ services:
 #       target: dev
 #     ports:
 #       - "5173:5173"
-#     environment:
-#       - NODE_ENV=development
-#       - VITE_BASE_URL=http://localhost:3000
 #     depends_on:
 #       - server
 #     restart: always
@@ -18,9 +15,6 @@ services:
 #       target: dev
 #     ports:
 #       - "3000:3000"
-#     environment:
-#       - NODE_ENV=development
-#       - MONGODB_URI=mongodb+srv://adeel:0NlT12srFcUelzM8@cluster0.xpwdjlo.mongodb.net/car-rental?retryWrites=true&w=majority&appName=Cluster0
 #     #networks:
 #      # - car-rental
 #     #depends_on:
@@ -50,10 +44,7 @@ services:
     image: hetgajera01/carrental-client
     ports:
       - "8000:80"
-    environment:
-      - VITE_CURRENCY= ₹
-      - NODE_ENV=production
-      - VITE_BASE_URL=http://localhost:3000
+
     depends_on:
       - server
     networks:
@@ -65,16 +56,7 @@ services:
     image: hetgajera01/carrental-server
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production 
-      - MONGODB_URI=mongodb+srv://23it030:meet6782@carrental.81ajsjf.mongodb.net/?appName=carrental
-      - GMAIL_USER=meetjakasaniya24@gmail.com
-      - GMAIL_PASS=fdmxblmuzbjwcehj
-      - FRONTEND_URL="http://localhost:5173"
-      - JWT_SECRET=meetjakasaniyakisecretkeyhai6782
-      - IMAGEKIT_PUBLIC_KEY="public_XVhKeElnZl/CO3n4Q1oU2Z+nPt8="
-      - IMAGEKIT_PRIVATE_KEY="private_eAqhSaW2yR1WV7XpSUI5+RiHOlg="
-      - IMAGEKIT_URL_ENDPOINT="https://ik.imagekit.io/Meet6782"
+
     networks:
       - car-rental
     restart: always
