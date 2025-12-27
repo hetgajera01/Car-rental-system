@@ -19,6 +19,7 @@ pipeline {
                     credentialsId:"Dockerhub",
                     usernameVariable:"user", 
                     passwordVariable:"pass")]){
+                sh "docker login -u ${env.user} -p ${env.pass}"
                 sh "docker image tag client ${env.user}/client:latest"
                 sh "docker image tag server ${env.user}/server:latest"
                 sh "docker push ${env.user}/client:latest"
