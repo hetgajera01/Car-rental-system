@@ -1,6 +1,10 @@
 @Library('shared_library') _
 pipeline {
     agent { label 'worker' } 
+    parameters {
+        string(name: 'client_docker_tag', defaultValue: '', description: 'Setting docker image for latest push')
+        string(name: 'server_docker_tag', defaultValue: '', description: 'Setting docker image for latest push')
+    }
     stages {
         stage('Code') {
             steps {
