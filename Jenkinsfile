@@ -1,4 +1,4 @@
-(@Library('shared_library') _
+@Library('shared_library') _
 pipeline {
     agent { label 'worker' } 
     parameters {
