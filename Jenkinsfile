@@ -2,7 +2,7 @@
 pipeline {
     agent { label 'worker' } 
     environment {
-        DOCKER_CREDS = credentials('Dockeruser')
+        DOCKER_CREDS = credentials('Dockerhub')
     }
     parameters {
         string(name: 'client_docker_tag', defaultValue: '', description: 'Setting docker image for latest push')
