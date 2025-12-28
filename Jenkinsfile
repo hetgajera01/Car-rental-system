@@ -1,12 +1,6 @@
 @Library('shared_library') _
 pipeline {
-    agent { label 'worker' }
-
-    parameters{
-        string{name: 'client_docker_tag', defaultValue: ''}
-        string{name: 'server_docker_tag', defaultValue: ''}
-    }
-    
+    agent { label 'worker' } 
     stages {
         stage('Code') {
             steps {
