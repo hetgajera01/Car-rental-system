@@ -1,4 +1,4 @@
-@Library('shared_library') _
+(@Library('shared_library') _
 pipeline {
     agent { label 'worker' } 
     parameters {
@@ -15,10 +15,10 @@ pipeline {
             steps {
                 script{
                         dir('client'){
-                            docker_build{"car-rental-client","${params.client_docker_tag}","hetgajera01"}
+                            docker_build("car-rental-client","${params.client_docker_tag}","hetgajera01")
                         }
                         dir('server'){
-                            docker_build{"car-rental-server","${params.server_docker_tag}","hetgajera01"}
+                            docker_build("car-rental-server","${params.server_docker_tag}","hetgajera01")
                     
                         }
                 }
