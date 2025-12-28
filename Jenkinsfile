@@ -18,10 +18,10 @@ pipeline {
             steps {
                 script{
                         dir('client'){
-                            docker_build("car-rental-client","${params.client_docker_tag}","env.DOCKER_CREDS_USR")
+                            docker_build("car-rental-client","${params.client_docker_tag}","${env.DOCKER_CREDS_USR}")
                         }
                         dir('server'){
-                            docker_build("car-rental-server","${params.server_docker_tag}","env.DOCKER_CREDS_USR")
+                            docker_build("car-rental-server","${params.server_docker_tag}","${env.DOCKER_CREDS_USR}")
                     
                         }
                 }
