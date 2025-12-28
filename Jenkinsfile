@@ -14,12 +14,12 @@ pipeline {
                     credentialsId:"Dockerhub",
                     usernameVariable:"user", 
                     passwordVariable:"pass")]){
-                        dir('client'){
+                       // dir('client'){
                             docker_build{"car-rental-client","${params.client_docker_tag}","${env.user}"}
-                        }
-                        dir('server'){
+                       // }
+                      //  dir('server'){
                             docker_build{"car-rental-server","${params.server_docker_tag}","${env.user}"}
-                        }
+                      //  }
                     }
                 }
             }
