@@ -27,17 +27,13 @@ pipeline {
                 }
             }
         }
-     /*   stage("Push To DockerHub"){
+        stage("Push To DockerHub"){
             steps{
-                withCredentials([usernamePassword(
-                    credentialsId:"Dockerhub",
-                    usernameVariable:"user", 
-                    passwordVariable:"pass")]){
-                sh "docker login -u ${env.user} -p ${env.pass}"
-                sh "docker push ${env.user}/client:latest"
-                sh "docker push ${env.user}/server:latest"
+                script{
+                    docker_push("car-rental-client","${params.client_docker_tag}")
+                    docker_push("car-rental-server","${params.client_docker_tag}")
                 }
             }
-        }*/
+        }
     }
 }
