@@ -1,7 +1,7 @@
 @Library('shared_library') _
 pipeline {
     agent { label 'worker' } 
-    enviroment {
+    environment {
         DOCKER_CREDS = credentials('Dockeruser')
     }
     parameters {
