@@ -9,6 +9,16 @@ pipeline {
         string(name: 'server_docker_tag', defaultValue: '', description: 'Setting docker image for latest push')
     }
     stages {
+        stage("Validate Parameters") {
+            steps {
+                script {
+                    if (params.client_docker_tag == '' || params.server_docker_tag == '') {
+                        error("client_docker_tag and server_docker_tag must be provided.")
+                    }
+                }
+            }
+        }
+    stages {
         stage('Code') {
             steps {
                 git url:'https://github.com/hetgajera01/Car-rental-system.git', branch:'main'
