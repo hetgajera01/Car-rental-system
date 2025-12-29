@@ -18,6 +18,7 @@ pipeline {
                 }
             }
         }
+    }
     stages {
         stage('Code') {
             steps {
