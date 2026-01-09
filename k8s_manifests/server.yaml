@@ -39,7 +39,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: server-secret
-                key: url
+                key: mongo-url
           - name: GMAIL_USER
             valueFrom:
               secretKeyRef:
