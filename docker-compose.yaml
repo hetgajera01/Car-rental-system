@@ -41,7 +41,7 @@ services:
   # Production environment
   client:
     build: ./client
-    image: hetgajera01/carrental-client
+    image: hetgajera01/car-rental-client
     ports:
       - "8000:80"
 
@@ -53,7 +53,7 @@ services:
 
   server:
     build: ./server
-    image: hetgajera01/carrental-server
+    image: hetgajera01/car-rental-server
     ports:
       - "3000:3000"
 
