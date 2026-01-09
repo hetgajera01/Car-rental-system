@@ -84,11 +84,9 @@ metadata:
   name: server-service
   namespace: crs
 spec:
-  type: NodePort
   selector:
     app: backend
   ports:
     - port: 3000
       targetPort: 3000
-      protocol: TCP
-      nodePort: 31100
+
