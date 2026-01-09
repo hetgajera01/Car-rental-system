@@ -1,3 +1,18 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: server-secret
+  namespace: crs
+data:
+  MONGODB_URI: bW9uZ29kYitzcnY6Ly8yM2l0MDMwOm1lZXQ2NzgyQGNhcnJlbnRhbC44MWFqc2pmLm1vbmdvZGIubmV0Lz9hcHBOYW1lPWNhcnJlbnRhbA==
+  GMAIL_USER: bWVldGpha2FzYW5peWEyNEBnbWFpbC5jb20=
+  GMAIL_PASS: ZmRteGJsbXV6Ymp3Y2Voag==
+  FRONTEND_URL: aHR0cDovL2xvY2FsaG9zdDo1MTcz
+  JWT_SECRET: bWVldGpha2FzYW5peWFraXNlY3JldGtleWhhaTY3ODI=
+  IMAGEKIT_PUBLIC_KEY: cHVibGljX1hWaEtlRWxuWmwvQ08zbjRRMW9VMlorblB0OD0=
+  IMAGEKIT_PRIVATE_KEY: cHJpdmF0ZV9lQXFoU2FXMnlSMVdWN1hwU1VJNStSaUhPbGc9
+  IMAGEKIT_URL_ENDPOINT: aHR0cHM6Ly9pay5pbWFnZWtpdC5pby9NZWV0Njc4Mg==
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
