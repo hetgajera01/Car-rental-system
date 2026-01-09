@@ -4,14 +4,14 @@ metadata:
   name: server-secret
   namespace: crs
 data:
-  MONGODB_URI: bW9uZ29kYitzcnY6Ly8yM2l0MDMwOm1lZXQ2NzgyQGNhcnJlbnRhbC44MWFqc2pmLm1vbmdvZGIubmV0Lz9hcHBOYW1lPWNhcnJlbnRhbA==
-  GMAIL_USER: bWVldGpha2FzYW5peWEyNEBnbWFpbC5jb20=
-  GMAIL_PASS: ZmRteGJsbXV6Ymp3Y2Voag==
-  FRONTEND_URL: aHR0cDovL2xvY2FsaG9zdDo1MTcz
-  JWT_SECRET: bWVldGpha2FzYW5peWFraXNlY3JldGtleWhhaTY3ODI=
-  IMAGEKIT_PUBLIC_KEY: cHVibGljX1hWaEtlRWxuWmwvQ08zbjRRMW9VMlorblB0OD0=
-  IMAGEKIT_PRIVATE_KEY: cHJpdmF0ZV9lQXFoU2FXMnlSMVdWN1hwU1VJNStSaUhPbGc9
-  IMAGEKIT_URL_ENDPOINT: aHR0cHM6Ly9pay5pbWFnZWtpdC5pby9NZWV0Njc4Mg==
+  mongo-url: bW9uZ29kYitzcnY6Ly8yM2l0MDMwOm1lZXQ2NzgyQGNhcnJlbnRhbC44MWFqc2pmLm1vbmdvZGIubmV0Lz9hcHBOYW1lPWNhcnJlbnRhbA==
+  user: bWVldGpha2FzYW5peWEyNEBnbWFpbC5jb20=
+  pass: ZmRteGJsbXV6Ymp3Y2Voag==
+  f-url: aHR0cDovL2xvY2FsaG9zdDo1MTcz
+  jwt: bWVldGpha2FzYW5peWFraXNlY3JldGtleWhhaTY3ODI=
+  public-key: cHVibGljX1hWaEtlRWxuWmwvQ08zbjRRMW9VMlorblB0OD0=
+  private-key: cHJpdmF0ZV9lQXFoU2FXMnlSMVdWN1hwU1VJNStSaUhPbGc9
+  url-endpoint: aHR0cHM6Ly9pay5pbWFnZWtpdC5pby9NZWV0Njc4Mg==
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -34,6 +34,47 @@ spec:
       containers:
         - name: server
           image: hetgajera01/car-rental-server:latest
+          env:
+          - name: MONGODB_URI
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: url
+          - name: GMAIL_USER
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: user
+          - name: GMAIL_PASS
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: pass      
+          - name: FRONTEND_URL
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: f-url
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: jwt
+          - name: IMAGEKIT_PUBLIC_KEY
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: public-key
+          - name: IMAGEKIT_PRIVATE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: private-key
+          - name: IMAGEKIT_URL_ENDPOINT
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: url-endpoint
           ports:
             - containerPort: 3000
 ---
