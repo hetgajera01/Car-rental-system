@@ -5,7 +5,7 @@ metadata:
   namespace: crs
 data:
   currency: 4oK5
-  url: aHR0cDovL2xvY2FsaG9zdDozMDAw
+  url: aHR0cDovL2xvY2FsaG9zdDozMDAwaHR0cDovL3NlcnZlci1zZXJ2aWNlOjMwMDA=
 ---
 apiVersion: apps/v1
 kind: Deployment
