@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: hetgajera01/car-rental-client
+          image: hetgajera01/car-rental-client:latest
           ports:
             - containerPort: 80
 ---
