@@ -29,16 +29,10 @@ spec:
         - name: client
           image: hetgajera01/car-rental-client:latest
           env:
-          - name: VITE_CURRENCY
-            valueFrom:
-              secretKeyRef:
-                name: client-secret
-                key: currency
-          - name: VITE_BASE_URL
-            valueFrom:
-              secretKeyRef:
-                name: client-secret
-                key: url
+            - name: VITE_CURRENCY
+              value: ₹
+              name: VITE_BASE_URL
+              value: "http://server-service:3000"
           ports:
             - containerPort: 80
 ---
