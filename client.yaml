@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: client-secret
+  namespace: crs
+data:
+  currency: 4oK5
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+  namespace: crs
+  labels:
+    app: client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      name: client
+      labels:
+        app: client
+    spec:
+      containers:
+        - name: client
+          image: hetgajera01/car-rental-client:latest
+          env:
+            - name: VITE_CURRENCY
+              value: ₹
+              name: VITE_BASE_URL
+              value: "http://server-service:3000"
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-service
+  namespace: crs
+spec:
+  selector:
+    app: client
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
