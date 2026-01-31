@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: server-config
+  namespace: crs
+data:
+  FRONTEND_URL: http://client-service:5173
+  IMAGEKIT_PUBLIC_KEY: public_XVhKeElnZl/CO3n4Q1oU2Z+nPt8=
+  IMAGEKIT_URL_ENDPOINT: https://ik.imagekit.io/Meet6782
